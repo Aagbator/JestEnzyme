@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+npm npm i -D enzyme enzyme-adapter-react-16 jest jest-enzyme
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
