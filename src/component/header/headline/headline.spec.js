@@ -21,7 +21,7 @@ describe('Headline component', () => {
                     lName: 'Test lName',
                     email: 'testemail@gmail.com',
                     age: 34,
-                    onlineStatus: false
+                    onlineStatus: 'jkjjkj'
                 }]
             };
 
