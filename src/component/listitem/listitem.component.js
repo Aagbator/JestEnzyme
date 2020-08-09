@@ -11,8 +11,8 @@ class ListItem extends Component {
         }
         return (
             <div data-test="listItemComponent">
-                <h2 data-test="componentTitle"></h2>
-                <p data-test="componentDesc"></p>
+                <h2 data-test="componentTitle">{title}</h2>
+                <p data-test="componentDesc">{desc}</p>
             </div>
         )
     }

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class SharedButton extends Component {
     render (){
-        const { buttonText } = this.props;
+        const { buttonText, emitEvent } = this.props;
         return (
-            <button data-test="buttonComponent">
+            <button data-test="buttonComponent" onClick={emitEvent}>
                 {buttonText}
             </button>
         )
