@@ -1,7 +1,36 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { findByTestAttr, testStore} from './Utils'
+import { shallow } from 'enzyme';
 
-test('renders learn react link', () => {
-  expect(2+4).toEqual(6);
-});
+const setUp = (initialState={}) => {
+  const store = testStore(initialState);
+  const wrapper = shallow(<App store={store} />).childAt(0).dive();
+  return wrapper;
+}
+
+describe('App Component', () => {
+  let wrapper;
+  beforeEach(() => {
+    const initialState = {
+      posts: [{
+        title: 'Example title 1',
+        body: 'Some text'
+      },
+      {
+          title: 'Example title 2',
+          body: 'Some text'
+      },{
+          title: 'Example title 3',
+          body: 'Some text'
+      }]
+    }
+
+    wrapper = setUp(initialState);
+  })
+
+    it('It should render without error', () => {
+        const component = findByTestAttr(wrapper, 'appComponent');
+        expect(component.length).toBe(1);
+      })
+})
