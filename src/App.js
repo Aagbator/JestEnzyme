@@ -6,6 +6,7 @@ import SharedButton from './component/header/button/button.component';
 import { connect } from 'react-redux';
 import { fetchPosts } from './actions/index';
 import ListItem from './component/listitem/listitem.component';
+import { number } from 'prop-types';
 
 const tempArr = [{
   fName: 'Ben',
@@ -15,20 +16,42 @@ const tempArr = [{
   onlineStatus: true
 }]
 
+const initialState = {
+  hideBtn: false
+}
+
 class App extends Component {
 
   constructor(props){
     super(props);
     this.fetch = this.fetch.bind(this);
+    this.hideButton = this.hideButton.bind(this);
+    this.state = {
+      ...initialState
+    }
   }
 
   fetch(){
     this.props.fetchPosts();
+    this.hideButton();
+  }
+
+  add5ToNumber = (num) => {
+    return 5 + num;
+  }
+
+  hideButton(){
+    const {hideBtn} = this.state;
+    this.setState({
+      hideBtn: !hideBtn
+    })
   }
 
   render(){
 
     const { posts } = this.props;
+
+    const {hideBtn} = this.state;
 
     const configButton = {
       buttonText: 'Get posts',
@@ -40,7 +63,8 @@ class App extends Component {
           <Header></Header>
           <main>
             <Headline header="Posts" desc="Click the button to render posts" tempArr={tempArr}></Headline>
-            <SharedButton {...configButton} />
+            {posts.length == 0 && !hideBtn ? <SharedButton {...configButton} /> : ''}
+            
             {posts.length > 0 && 
             <div>
               {posts.map((post, index) => {

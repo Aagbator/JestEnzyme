@@ -33,4 +33,19 @@ describe('App Component', () => {
         const component = findByTestAttr(wrapper, 'appComponent');
         expect(component.length).toBe(1);
       })
+
+
+      it('hidebutton method should update state as expected', () => {
+        const classInstance = wrapper.instance();
+        classInstance.hideButton();
+        const newState = classInstance.state.hideBtn;
+
+        expect(newState).toBe(true);
+      })
+
+      it('add5ToNumber method should return value as expected', () => {
+        const classInstance = wrapper.instance();
+        const newValue = classInstance.add5ToNumber(4);
+        expect(newValue).toBe(9);
+      });
 })
