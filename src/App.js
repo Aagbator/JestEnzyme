@@ -50,7 +50,7 @@ class App extends Component {
                   desc: body
                 }
                 return (
-                  <ListItem {...configListItem} />
+                  <ListItem key={index} {...configListItem} />
                 )
               })}
             </div>}
