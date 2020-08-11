@@ -24,7 +24,7 @@ describe('Shared Button', () => {
             mockFunc = jest.fn();
             const props = {
                 buttonText: 'Example Button Text',
-                emitEvent: mockFunc
+                emitEvent: 333
             };
             wrapper = shallow(<SharedButton {...props}/>);
         })
